@@ -12,9 +12,11 @@ const MODULE = (function () {
 
     function look() {
         if (vinePCSAll > 0 && beerPCSAll > 0 && colaPCSAll > 0) {
+            console.log(' ----------Товари--------- ');
             console.log('вино: ' + vinePCSAll + ' шт');
             console.log('пиво: ' + beerPCSAll + ' шт');
             console.log('кола: ' + colaPCSAll + ' шт');
+            console.log(' ----------Товари--------- ');
         } else {
             console.log('Якийсь з вибраних вами товарів закінчився, можливо ви виберете щось інше?)');
         }
@@ -64,27 +66,46 @@ const MODULE = (function () {
         colaPCS = 0;
     }
 
+    function basket(){
+        if (vinePCSAll - vinePCS <= 0 && beerPCSAll - beerPCS <= 0 && colaPCSAll - colaPCS <= 0) {
+            console.log(' ----------Корзина--------- ');
+            console.log('вино: ' + vinePCS + ' шт');
+            console.log('пиво: ' + beerPCS + ' шт');
+            console.log('кола: ' + colaPCS + ' шт');
+            console.log(' ----------Корзина--------- ');
+        } else {
+            console.log('Якийсь з вибраних вами товарів закінчився, можливо ви виберете щось інше?)');
+        }
+    }
+
     return {
         addV: addV,
         addB: addB,
         addC: addC,
         buy: buy,
         look: look,
+        basket: basket,
     }
 
 }());
 
+MODULE.look();
+
 MODULE.addV(10);
 MODULE.addB(3);
-MODULE.addC(7);
+
+MODULE.basket();
 
 MODULE.buy();
+
 
 MODULE.look();
 
 MODULE.addV(6);
 MODULE.addB(4);
 MODULE.addC(3);
+
+MODULE.basket();
 
 MODULE.buy();
 
@@ -94,6 +115,7 @@ MODULE.addV(100);
 MODULE.addB(4);
 MODULE.addC(3);
 
+MODULE.basket();
+
 MODULE.buy();
 
-MODULE.look();
