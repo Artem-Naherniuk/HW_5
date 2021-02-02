@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 800px;
+            margin: 200px auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .bloks {
+            width: 200px;
+            height: 300px;
+            border: 1px solid #000;
+            border-radius: 10px;
+            background-color: rgb(233, 232, 232);
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-flow: column;
+        }
+
+        input {
+            margin-bottom: 20px;
+        }
+
+        #basket {
+            resize: none;
+            width: 170px;
+            height: 70px;
+            display: flex;
+            justify-content: start;
+            flex-flow: column;
+            background-color: white;
+            border: 1px solid #000;
+        }
+
+        .alert {
+            width: 500px;
+            height: 130px;
+            border: 1px solid #000;
+            background-color: white;
+            border-radius: 10px;
+            position: absolute;
+            top: 32%;
+            left: 32%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            visibility: hidden;
+            flex-flow: column;
+        }
+
+        #alertMessage {
+            font-size: 30px;
+            padding: 10px;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="container">
+        <div class="bloks">
+            <span>Баланс</span>
+            <input id="balance" type="text" value="0" readonly>
+
+            <span>Вино</span>
+            <input id="vino" type="text" value="100" readonly>
+
+            <span>Пиво</span>
+            <input id="beer" type="text" value="150" readonly>
+
+            <span>Кола</span>
+            <input id="cola" type="text" value="200" readonly>
+        </div>
+        <div class="bloks">
+            <span>Кількість</span>
+            <input type="text" id="count">
+
+            <form name="frm" class="radio">
+                <input type="radio" id="radioVino" name="sort" value="vino" checked>Вино
+                <input type="radio" id="radioBeer" name="sort" value="beer">Пиво
+                <input type="radio" id="radioCola" name="sort" value="cola">Кола
+            </form>
+
+            <button id="add" style="margin-bottom: 20px;">Додати</button>
+
+            <div id="basket" style="margin-bottom: 20px;" readonly></div>
+
+            <button id="buy" disabled>Купити</button>
+        </div>
+        <div class="bloks" id="ticket"></div>
+    </div>
+
+    <div class="alert">
+        <span id="alertMessage"></span>
+        <button id="alertButton">Ok</button>
+    </div>
+
+    <script src="./main2.js"></script>
+</body>
+
+</html>
